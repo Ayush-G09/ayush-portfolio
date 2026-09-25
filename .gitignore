@@ -1,0 +1,4 @@
+.env
+server/messages.jsonl
+node_modules
+dist
