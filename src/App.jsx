@@ -2,6 +2,7 @@ import Terminal from './Terminal.jsx'
 import ProjectModal from './ProjectModal.jsx'
 import WhiteboardDetails from './WhiteboardDetails.jsx'
 import DepthDetails from './DepthDetails.jsx'
+import { Clip } from './Media.jsx'
 import Background from './Background.jsx'
 import CommandPalette from './CommandPalette.jsx'
 import Typing from './Typing.jsx'
@@ -36,6 +37,13 @@ const jobs = [
 const projects = [
   {
     url: 'depth-web-pearl.vercel.app', name: 'Depth', featured: true, Details: DepthDetails,
+    media: {
+      video: '/media/depth-demo.webm', poster: '/media/depth-terrain.jpg', alt: 'Screen recording of Depth: orbiting the live 3D order book, rewinding, and switching to 3D candles',
+      shots: [
+        { src: '/media/depth-terrain.jpg', alt: 'Depth: the live BTC order book as 3D terrain with whale walls as glowing spheres' },
+        { src: '/media/depth-candles.jpg', alt: 'Depth: 3D trade candles with whale wall levels drawn across them' },
+      ],
+    },
     text: 'A live 3D view of a crypto order book. Real Binance data is turned into terrain you can orbit, with whale walls as glowing spheres, a 10-minute replay, 3D trade candles and price or whale alerts. The hard part is correctness: the book is rebuilt from a snapshot plus a stream of updates, resyncs on any gap, and only shows price ranges it can vouch for. 160+ tests, including a real-data check against Binance.',
     tags: ['React', 'TypeScript', 'Three.js', 'WebSockets', 'Node.js', 'Vite'],
     links: [
@@ -45,6 +53,10 @@ const projects = [
   },
   {
     url: 'whiteboard-api-two.vercel.app', name: 'Whiteboard', featured: true, Details: WhiteboardDetails,
+    media: {
+      video: '/media/whiteboard-demo.webm', poster: '/media/whiteboard-board.jpg', alt: 'Screen recording of Whiteboard: two people drawing on the same board at once',
+      shots: [{ src: '/media/whiteboard-board.jpg', alt: 'Whiteboard: shapes drawn by two people, with a collaborator’s live cursor' }],
+    },
     text: 'A multiplayer whiteboard. Draw together in real time with live cursors, follow mode and reactions; share view-only links the server actually enforces; scrub back through saved versions; export PNG or SVG. Edits merge conflict-free with Yjs on a NestJS WebSocket server, saved to Postgres, and it is built to run on several servers using Redis. 200+ tests, including two real Chrome windows driven end to end.',
     tags: ['React', 'TypeScript', 'Canvas 2D', 'Yjs', 'NestJS', 'WebSockets', 'PostgreSQL', 'Redis'],
     links: [
@@ -202,6 +214,7 @@ export default function App() {
                 onClick={p.Details ? (e) => { if (!e.target.closest('a, button')) setOpenProject(p) } : undefined}
               >
                 <div className="dots"><i className="r" /><i className="y" /><i className="g" /><span className="mono">{p.url}</span></div>
+                {p.media && <Clip video={p.media.video} poster={p.media.poster} alt={p.media.alt} />}
                 <div className="in">
                   <h3>{p.name}</h3>
                   <p>{p.text}</p>

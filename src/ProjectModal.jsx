@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
+import { Gallery } from './Media.jsx'
 
 const FOCUSABLE = 'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])'
 
@@ -57,7 +58,7 @@ export default function ProjectModal({ project, onClose }) {
             </button>
           </div>
         </header>
-        <div className="modal-body"><Details /></div>
+        <div className="modal-body"><Gallery media={project.media} /><Details /></div>
       </div>
     </div>,
     document.body,
