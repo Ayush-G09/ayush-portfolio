@@ -1,4 +1,6 @@
 import Terminal from './Terminal.jsx'
+import ProjectModal from './ProjectModal.jsx'
+import WhiteboardDetails from './WhiteboardDetails.jsx'
 import Background from './Background.jsx'
 import CommandPalette from './CommandPalette.jsx'
 import Typing from './Typing.jsx'
@@ -32,7 +34,7 @@ const jobs = [
 
 const projects = [
   {
-    url: 'whiteboard-api-two.vercel.app', name: 'Whiteboard', featured: true,
+    url: 'whiteboard-api-two.vercel.app', name: 'Whiteboard', featured: true, Details: WhiteboardDetails,
     text: 'A multiplayer whiteboard. Draw together in real time with live cursors, follow mode and reactions; share view-only links the server actually enforces; scrub back through saved versions; export PNG or SVG. Edits merge conflict-free with Yjs on a NestJS WebSocket server, saved to Postgres, and it is built to run on several servers using Redis. 200+ tests, including two real Chrome windows driven end to end.',
     tags: ['React', 'TypeScript', 'Canvas 2D', 'Yjs', 'NestJS', 'WebSockets', 'PostgreSQL', 'Redis'],
     links: [
@@ -55,6 +57,7 @@ const Title = ({ children }) => (
 )
 
 export default function App() {
+  const [openProject, setOpenProject] = useState(null)
   const [menu, setMenu] = useState(false)
   const active = useActiveSection(SECTIONS)
   useReveal(REVEAL)
@@ -64,6 +67,7 @@ export default function App() {
       <a className="skip" href="#main">Skip to content</a>
       <Background />
       <Spotlight />
+      {openProject && <ProjectModal project={openProject} onClose={() => setOpenProject(null)} />}
       <Cursor />
       <Konami />
       <ProgressBar />
@@ -182,16 +186,21 @@ export default function App() {
           <Title>Projects</Title>
           <div className="cards">
             {projects.map((p) => (
-              <Tilt key={p.name} className={`card ${p.featured ? 'wide' : ''}`}>
+              <Tilt
+                key={p.name}
+                className={`card ${p.featured ? 'wide' : ''} ${p.Details ? 'clickable' : ''}`}
+                onClick={p.Details ? (e) => { if (!e.target.closest('a, button')) setOpenProject(p) } : undefined}
+              >
                 <div className="dots"><i className="r" /><i className="y" /><i className="g" /><span className="mono">{p.url}</span></div>
                 <div className="in">
                   <h3>{p.name}</h3>
                   <p>{p.text}</p>
                   <div className="chips mono">{p.tags.map((t) => <span key={t} className="pill">{t}</span>)}</div>
-                  {p.links && (
+                  {(p.links || p.Details) && (
                     <div className="card-links">
-                      {p.links.map((l, i) => (
-                        <a key={l.label} className={`btn small ${i ? 'ghost' : ''}`} href={l.href} target="_blank" rel="noopener noreferrer">{l.label} <span aria-hidden="true">↗</span></a>
+                      {p.Details && <button className="btn small" onClick={() => setOpenProject(p)} aria-haspopup="dialog">How it’s built <span aria-hidden="true">→</span></button>}
+                      {p.links?.map((l) => (
+                        <a key={l.label} className="btn small ghost" href={l.href} target="_blank" rel="noopener noreferrer">{l.label} <span aria-hidden="true">↗</span></a>
                       ))}
                     </div>
                   )}

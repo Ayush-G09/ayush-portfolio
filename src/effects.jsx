@@ -18,7 +18,7 @@ export function Spotlight() {
 }
 
 // 3D tilt + moving sheen toward the cursor.
-export function Tilt({ className = '', children }) {
+export function Tilt({ className = '', children, ...rest }) {
   const ref = useRef(null)
   const move = (e) => {
     if (reduced() || !window.matchMedia('(hover: hover)').matches) return
@@ -32,7 +32,7 @@ export function Tilt({ className = '', children }) {
   }
   const leave = () => { ref.current.style.transform = '' }
   return (
-    <div ref={ref} className={`tilt ${className}`} onMouseMove={move} onMouseLeave={leave}>
+    <div ref={ref} className={`tilt ${className}`} onMouseMove={move} onMouseLeave={leave} {...rest}>
       {children}
     </div>
   )
