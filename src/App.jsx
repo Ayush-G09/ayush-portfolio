@@ -1,6 +1,7 @@
 import Terminal from './Terminal.jsx'
 import ProjectModal from './ProjectModal.jsx'
 import WhiteboardDetails from './WhiteboardDetails.jsx'
+import DepthDetails from './DepthDetails.jsx'
 import Background from './Background.jsx'
 import CommandPalette from './CommandPalette.jsx'
 import Typing from './Typing.jsx'
@@ -33,6 +34,15 @@ const jobs = [
 ]
 
 const projects = [
+  {
+    url: 'depth-web-pearl.vercel.app', name: 'Depth', featured: true, Details: DepthDetails,
+    text: 'A live 3D view of a crypto order book. Real Binance data is turned into terrain you can orbit, with whale walls as glowing spheres, a 10-minute replay, 3D trade candles and price or whale alerts. The hard part is correctness: the book is rebuilt from a snapshot plus a stream of updates, resyncs on any gap, and only shows price ranges it can vouch for. 160+ tests, including a real-data check against Binance.',
+    tags: ['React', 'TypeScript', 'Three.js', 'WebSockets', 'Node.js', 'Vite'],
+    links: [
+      { label: 'Live demo', href: 'https://depth-web-pearl.vercel.app' },
+      { label: 'Source', href: 'https://github.com/Ayush-G09/depth' },
+    ],
+  },
   {
     url: 'whiteboard-api-two.vercel.app', name: 'Whiteboard', featured: true, Details: WhiteboardDetails,
     text: 'A multiplayer whiteboard. Draw together in real time with live cursors, follow mode and reactions; share view-only links the server actually enforces; scrub back through saved versions; export PNG or SVG. Edits merge conflict-free with Yjs on a NestJS WebSocket server, saved to Postgres, and it is built to run on several servers using Redis. 200+ tests, including two real Chrome windows driven end to end.',

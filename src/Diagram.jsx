@@ -1,5 +1,5 @@
 // How the whiteboard's parts connect. Plain SVG, themed with the site's CSS variables.
-const Box = ({ x, y, w, h, title, lines = [], dashed = false, tone = '' }) => {
+export const Box = ({ x, y, w, h, title, lines = [], dashed = false, tone = '' }) => {
   const left = Number(x)
   const top = Number(y)
   return (
@@ -11,11 +11,11 @@ const Box = ({ x, y, w, h, title, lines = [], dashed = false, tone = '' }) => {
   )
 }
 
-const Arrow = ({ d, both = false, dashed = false }) => (
+export const Arrow = ({ d, both = false, dashed = false }) => (
   <path className="dg-arrow" d={d} markerEnd="url(#dg-head)" markerStart={both ? 'url(#dg-head-start)' : undefined} strokeDasharray={dashed ? '5 4' : undefined} />
 )
 
-const Label = ({ x, y, lines, anchor = 'middle' }) => (
+export const Label = ({ x, y, lines, anchor = 'middle' }) => (
   <text className="dg-label" x={x} y={y} textAnchor={anchor}>
     {lines.map((l, i) => <tspan key={l} x={x} dy={i === 0 ? 0 : 14}>{l}</tspan>)}
   </text>
