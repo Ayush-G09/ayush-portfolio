@@ -31,6 +31,15 @@ const jobs = [
 ]
 
 const projects = [
+  {
+    url: 'whiteboard-api-two.vercel.app', name: 'Whiteboard', featured: true,
+    text: 'A multiplayer whiteboard. Draw together in real time with live cursors, follow mode and reactions; share view-only links the server actually enforces; scrub back through saved versions; export PNG or SVG. Edits merge conflict-free with Yjs on a NestJS WebSocket server, saved to Postgres, and it is built to run on several servers using Redis. 200+ tests, including two real Chrome windows driven end to end.',
+    tags: ['React', 'TypeScript', 'Canvas 2D', 'Yjs', 'NestJS', 'WebSockets', 'PostgreSQL', 'Redis'],
+    links: [
+      { label: 'Live demo', href: 'https://whiteboard-api-two.vercel.app' },
+      { label: 'Source', href: 'https://github.com/Ayush-G09/whiteboard' },
+    ],
+  },
   { url: 'askq.app', name: 'AskQ', text: 'AI-powered PDF Q&A platform. Built REST endpoints for document ingestion and semantic search over user-uploaded files.', tags: ['React.js', 'Node.js', 'MongoDB', 'LangChain', 'Pinecone', 'OpenAI'] },
   { url: 'liptoken.app', name: 'LIP Token', text: 'GameFi web app with on-chain NFT minting, cutting transaction costs by 10–50% through contract-level optimization.', tags: ['React.js', 'Solidity', 'Web3.js'] },
 ]
@@ -173,12 +182,19 @@ export default function App() {
           <Title>Projects</Title>
           <div className="cards">
             {projects.map((p) => (
-              <Tilt key={p.name} className="card">
+              <Tilt key={p.name} className={`card ${p.featured ? 'wide' : ''}`}>
                 <div className="dots"><i className="r" /><i className="y" /><i className="g" /><span className="mono">{p.url}</span></div>
                 <div className="in">
                   <h3>{p.name}</h3>
                   <p>{p.text}</p>
                   <div className="chips mono">{p.tags.map((t) => <span key={t} className="pill">{t}</span>)}</div>
+                  {p.links && (
+                    <div className="card-links">
+                      {p.links.map((l, i) => (
+                        <a key={l.label} className={`btn small ${i ? 'ghost' : ''}`} href={l.href} target="_blank" rel="noopener noreferrer">{l.label} <span aria-hidden="true">↗</span></a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </Tilt>
             ))}
