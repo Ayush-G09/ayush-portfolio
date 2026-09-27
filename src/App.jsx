@@ -2,6 +2,7 @@ import Terminal from './Terminal.jsx'
 import ProjectModal from './ProjectModal.jsx'
 import WhiteboardDetails from './WhiteboardDetails.jsx'
 import DepthDetails from './DepthDetails.jsx'
+import RedlineDetails from './RedlineDetails.jsx'
 import { Clip } from './Media.jsx'
 import Background from './Background.jsx'
 import CommandPalette from './CommandPalette.jsx'
@@ -35,6 +36,21 @@ const jobs = [
 ]
 
 const projects = [
+  {
+    url: 'github.com/Ayush-G09/redline', name: 'Redline', featured: true, Details: RedlineDetails,
+    text: 'An AI code reviewer for GitHub pull requests that measures its own quality: a 34-case scored test set, streamed line-accurate comments, and a live dashboard that learns from dismissals. Runs for free — a free Gemini key, or a fully local model with no key at all. Not deployed publicly; clone it and run it in about two minutes. 265 tests.',
+    tags: ['TypeScript', 'Node.js', 'GitHub Actions', 'WebSockets', 'Gemini', 'Ollama'],
+    media: {
+      video: '/media/redline-demo.webm', poster: '/media/redline-dashboard.jpg', alt: 'Screen recording of the Redline live dashboard: comments streaming in for two pull requests, then one being dismissed',
+      shots: [
+        { src: '/media/redline-dashboard.jpg', alt: 'Redline dashboard: two pull requests being reviewed live, with streamed comments' },
+        { src: '/media/redline-dashboard-2.jpg', alt: 'Redline dashboard after dismissing a comment, shown greyed out and marked dismissed' },
+      ],
+    },
+    links: [
+      { label: 'Source', href: 'https://github.com/Ayush-G09/redline' },
+    ],
+  },
   {
     url: 'depth-web-pearl.vercel.app', name: 'Depth', featured: true, Details: DepthDetails,
     media: {

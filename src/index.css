@@ -388,3 +388,6 @@ html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}
 .gallery .clip{border:1px solid var(--line);border-radius:12px}
 .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px}
 .shots img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+
+.code-block { background: #0b1020; border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; overflow-x: auto; font-size: 13px; line-height: 1.6; margin: 0; }
+.code-block code { font-family: ui-monospace, "SF Mono", Consolas, monospace; white-space: pre; color: var(--text); }
