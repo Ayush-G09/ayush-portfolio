@@ -3,6 +3,7 @@ import ProjectModal from './ProjectModal.jsx'
 import WhiteboardDetails from './WhiteboardDetails.jsx'
 import DepthDetails from './DepthDetails.jsx'
 import RedlineDetails from './RedlineDetails.jsx'
+import BulwarkDetails from './BulwarkDetails.jsx'
 import { Clip } from './Media.jsx'
 import Background from './Background.jsx'
 import CommandPalette from './CommandPalette.jsx'
@@ -36,6 +37,21 @@ const jobs = [
 ]
 
 const projects = [
+  {
+    url: 'github.com/Ayush-G09/bulwark', name: 'Bulwark', featured: true, Details: BulwarkDetails,
+    text: 'A rate limiter and job queue proven correct under real distributed load: atomic Redis scripts, real separate processes racing for a shared bucket, real Docker containers, a real crash recovered. A live dashboard shows every instance’s activity, relayed over Redis, on whichever one you open. Not deployed publicly; clone it and run it in about two minutes. 98 tests.',
+    tags: ['TypeScript', 'Redis', 'Docker', 'Node.js', 'WebSockets'],
+    media: {
+      video: '/media/bulwark-demo.webm', poster: '/media/bulwark-dashboard.jpg', alt: 'Screen recording of the Bulwark live dashboard: rate-limit checks and a job being claimed and completed, all from a different instance than the one serving the page',
+      shots: [
+        { src: '/media/bulwark-dashboard.jpg', alt: 'Bulwark dashboard: a rate-limit policy being throttled, with allowed and refused requests, and a completed job, all from another instance' },
+        { src: '/media/bulwark-dashboard-2.jpg', alt: 'Bulwark dashboard with more live activity accumulated: multiple jobs and rate-limit checks from another instance' },
+      ],
+    },
+    links: [
+      { label: 'Source', href: 'https://github.com/Ayush-G09/bulwark' },
+    ],
+  },
   {
     url: 'github.com/Ayush-G09/redline', name: 'Redline', featured: true, Details: RedlineDetails,
     text: 'An AI code reviewer for GitHub pull requests that measures its own quality: a 34-case scored test set, streamed line-accurate comments, and a live dashboard that learns from dismissals. Runs for free — a free Gemini key, or a fully local model with no key at all. Not deployed publicly; clone it and run it in about two minutes. 265 tests.',
