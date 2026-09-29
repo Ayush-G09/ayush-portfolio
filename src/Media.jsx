@@ -23,7 +23,7 @@ export function Clip({ video, poster, alt, controls = false }) {
       ref={ref} className="clip" poster={poster} muted loop playsInline preload={controls ? 'metadata' : 'none'}
       controls={controls || still} aria-label={alt}
     >
-      <source src={video} type="video/webm" />
+      {video && <source src={video} type="video/webm" />}
     </video>
   )
 }
@@ -33,7 +33,7 @@ export function Gallery({ media }) {
   if (!media) return null
   return (
     <section className="gallery">
-      <Clip video={media.video} poster={media.poster} alt={media.alt} controls />
+      {media.video && <Clip video={media.video} poster={media.poster} alt={media.alt} controls />}
       <div className="shots">
         {media.shots.map((s) => (
           <a key={s.src} href={s.src} target="_blank" rel="noopener noreferrer" aria-label={`${s.alt} (opens full size)`}>

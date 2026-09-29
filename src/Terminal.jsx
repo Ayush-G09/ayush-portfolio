@@ -6,7 +6,7 @@ const COMMANDS = {
   help: () => ['Available commands:', '  whoami    who is this', '  skills    tech stack', '  projects  things I built', '  contact   get in touch', '  goto <section>  about|skills|experience|projects|contact', '  clear     clear screen'],
   whoami: () => ['Ayush Gokhle — full-stack engineer, Indore.', 'React / Vue.js on Node.js + TypeScript. 3 years in.'],
   skills: () => ['frontend  React, Next.js, Vue.js, React Native, Angular', 'backend   Node.js, Express, GraphQL, SQL, MongoDB', 'devops    Jest, CI/CD, Docker, Kubernetes', 'ai/web3   OpenAI, LangChain, Pinecone, Solidity'],
-  projects: () => ['AskQ       AI-powered PDF Q&A platform', 'LIP Token  GameFi app with on-chain NFT minting', '-> scrolling to projects...'],
+  projects: () => ['Tickrate   Multiplayer shooter proving real netcode', 'Bulwark    Rate limiter + job queue, proven distributed', 'Redline    AI PR reviewer that scores its own quality', '-> scrolling to projects...'],
   contact: () => ['email     ayushgokhle@gmail.com', 'linkedin  /in/ayush-gokhle-343521224', 'phone     +91 9977424526'],
   sudo: (args) => (args.join(' ') === 'hire ayush' ? ['[sudo] permission granted.', 'Excellent decision. Opening your mail client...'] : ['nice try. usage: sudo hire ayush']),
 }

@@ -4,6 +4,7 @@ import WhiteboardDetails from './WhiteboardDetails.jsx'
 import DepthDetails from './DepthDetails.jsx'
 import RedlineDetails from './RedlineDetails.jsx'
 import BulwarkDetails from './BulwarkDetails.jsx'
+import TickrateDetails from './TickrateDetails.jsx'
 import { Clip } from './Media.jsx'
 import Background from './Background.jsx'
 import CommandPalette from './CommandPalette.jsx'
@@ -37,6 +38,21 @@ const jobs = [
 ]
 
 const projects = [
+  {
+    url: 'github.com/Ayush-G09/tickrate', name: 'Tickrate', featured: true, Details: TickrateDetails,
+    text: 'A multiplayer arena shooter built to prove out real authoritative-server netcode: client-side prediction, server reconciliation, snapshot interpolation, and lag-compensated hit detection — each phase proven by a decisive test, including a real forked server process replaying its own recorded input history bit-identically, and the same shot missing without lag compensation and hitting with it at the exact same simulated latency. A live debug panel lets you drag latency and packet-loss sliders into your own connection mid-game. Not deployed publicly; clone it and run it in about two minutes. 84 tests.',
+    tags: ['TypeScript', 'WebSockets', 'Node.js', 'Canvas', 'Vite'],
+    media: {
+      poster: '/media/tickrate-action.png', alt: 'Tickrate: a player in the arena with the crosshair, health bar, and HUD showing tick sync at zero simulated latency',
+      shots: [
+        { src: '/media/tickrate-debug-panel.png', alt: 'Tickrate: the live netcode debug panel with simulated latency and packet loss dragged up, showing the predicted tick running ahead of the server-confirmed tick with 16 unacknowledged inputs in flight' },
+        { src: '/media/tickrate-action.png', alt: 'Tickrate: a player in the arena with the crosshair, health bar, and HUD showing tick sync at zero simulated latency' },
+      ],
+    },
+    links: [
+      { label: 'Source', href: 'https://github.com/Ayush-G09/tickrate' },
+    ],
+  },
   {
     url: 'github.com/Ayush-G09/bulwark', name: 'Bulwark', featured: true, Details: BulwarkDetails,
     text: 'A rate limiter and job queue proven correct under real distributed load: atomic Redis scripts, real separate processes racing for a shared bucket, real Docker containers, a real crash recovered. A live dashboard shows every instance’s activity, relayed over Redis, on whichever one you open. Not deployed publicly; clone it and run it in about two minutes. 98 tests.',
@@ -96,8 +112,6 @@ const projects = [
       { label: 'Source', href: 'https://github.com/Ayush-G09/whiteboard' },
     ],
   },
-  { url: 'askq.app', name: 'AskQ', text: 'AI-powered PDF Q&A platform. Built REST endpoints for document ingestion and semantic search over user-uploaded files.', tags: ['React.js', 'Node.js', 'MongoDB', 'LangChain', 'Pinecone', 'OpenAI'] },
-  { url: 'liptoken.app', name: 'LIP Token', text: 'GameFi web app with on-chain NFT minting, cutting transaction costs by 10–50% through contract-level optimization.', tags: ['React.js', 'Solidity', 'Web3.js'] },
 ]
 
 const Dots = ({ colored }) => (
