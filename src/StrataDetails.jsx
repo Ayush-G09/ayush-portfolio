@@ -2,8 +2,8 @@ import { useRef, useState } from 'react'
 import { Arrow, Box, Label } from './Diagram'
 
 const FEATURES = [
-  ['Hybrid retrieval, not just vector search', 'BM25 keyword search and cosine-similarity vector search, fused with Reciprocal Rank Fusion — the same combination RAGFlow documents using, implemented from scratch here rather than reused.'],
-  ['An evaluation harness built into the engine itself', 'Faithfulness, answer relevancy, context precision and context recall — Ragas’ own four metrics — re-implemented from first principles (claim decomposition + LLM-judge, reverse-question-generation + embedding similarity, rank-weighted average precision) and scored against a 6-case golden set with distractor documents.'],
+  ['Hybrid retrieval, not just vector search', 'BM25 keyword search and cosine-similarity vector search, fused with Reciprocal Rank Fusion so two differently-scaled ranking signals can combine at all — implemented from scratch, not wired to a vector-search SaaS.'],
+  ['An evaluation harness built into the engine itself', 'Faithfulness, answer relevancy, context precision and context recall — four LLM-judged quality metrics implemented from first principles (claim decomposition + LLM-judge, reverse-question-generation + embedding similarity, rank-weighted average precision) and scored against a 6-case golden set with distractor documents.'],
   ['Citations that are checked, not trusted', 'Every `[n]` in a generated answer is validated against the sources actually given to the model. A hallucinated citation is caught and reported, never silently accepted.'],
   ['Runs for free', 'A free Gemini API key, or a fully local Ollama model with nothing leaving the machine — the same free-first pattern as Redline, and both are what actually generated the answers on this page.'],
   ['A live, on-demand comparison', 'The "Run sample evaluation" button calls the real connected model to score hybrid retrieval against a naive keyword-overlap baseline, live, in the browser — not a canned number.'],
@@ -130,10 +130,10 @@ export default function StrataDetails() {
       <section>
         <h3>What it is</h3>
         <p className="lead-p">
-          An original RAG (retrieval-augmented generation) engine with an evaluation harness built directly into
-          it — the two things RAGFlow and Ragas each do separately, combined, with every piece (chunking, hybrid
-          retrieval, grounded generation, all four Ragas-style metrics) implemented from scratch after studying how
-          both actually work. <strong>Live</strong>: try it below, or clone it and run it in about two minutes.
+          A RAG (retrieval-augmented generation) engine with an evaluation harness built directly into it — every
+          piece (chunking, hybrid retrieval, grounded generation, four LLM-judged quality metrics) implemented from
+          scratch rather than assembled from an existing framework. <strong>Live</strong>: try it below, or clone it
+          and run it in about two minutes.
         </p>
       </section>
 
@@ -173,7 +173,7 @@ npm run eval -w apps/server    # runs the golden set for real, hybrid vs. naive,
       <section>
         <h3>Decisions worth explaining</h3>
         <ul className="decisions">
-          <li><strong>Studied, not cloned.</strong> RAGFlow and Ragas were read closely to understand their actual techniques (template-based chunking, hybrid retrieval, claim-decomposition-based faithfulness) — nothing here is their code; every line was designed and written independently, and the stack, scope, and scoring are deliberately different.</li>
+          <li><strong>Built from first principles, not assembled from a framework.</strong> Chunking, hybrid retrieval, grounded generation and all four evaluation metrics are each a small, independently-designed module — no vector-search SaaS, no evaluation library, so every piece is something to actually reason about and test, not a black box wired together.</li>
           <li><strong>The evaluation harness is not a separate simulation.</strong> It scores the exact retrieved chunks and generated answer the query path just produced, via the same `StrataIndex.query`, with only the retrieval strategy swappable for the naive-baseline comparison.</li>
           <li><strong>A baseline that has to actually lose.</strong> Naive keyword-overlap-count has no IDF weighting and no semantic signal — real numbers from a real run (below) show it losing on 3 of 4 metrics, and honestly not on the 4th.</li>
           <li><strong>Citations are checked against reality, not assumed.</strong> The same "a claim must point at something real" discipline as Redline’s line-verified review comments, applied here to RAG citations instead of diff lines.</li>

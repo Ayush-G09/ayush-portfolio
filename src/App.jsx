@@ -41,7 +41,7 @@ const jobs = [
 const projects = [
   {
     url: 'strata-web-one.vercel.app', name: 'Strata', featured: true, Details: StrataDetails,
-    text: 'An original RAG engine with an evaluation harness built directly into it — the two things RAGFlow and Ragas each do separately, combined, and every piece (hybrid BM25 + vector retrieval fused by RRF, citation-checked generation, and all four Ragas-style metrics) implemented from scratch after studying how both actually work. A real run scored hybrid retrieval at 100% faithfulness and 91.7% context precision against a naive baseline’s 77.8% and 63.9% — real numbers from an actual model, not assumed. Live demo above; 126 tests.',
+    text: 'A RAG (retrieval-augmented generation) engine with an evaluation harness built directly into it: hybrid BM25 + vector retrieval fused by Reciprocal Rank Fusion, citation-checked generation, and four LLM-judged quality metrics (faithfulness, answer relevancy, context precision, context recall), all implemented from scratch. A real run scored hybrid retrieval at 100% faithfulness and 91.7% context precision against a naive baseline’s 77.8% and 63.9% — real numbers from an actual model, not assumed. Live demo above; 126 tests.',
     tags: ['TypeScript', 'Node.js', 'Gemini', 'Ollama', 'Vite'],
     media: {
       poster: '/media/strata-answer.png', alt: 'Strata: a cited, grounded answer to a real question with the retrieved chunk shown alongside its fused, vector, and BM25 scores',
