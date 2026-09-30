@@ -5,6 +5,7 @@ import DepthDetails from './DepthDetails.jsx'
 import RedlineDetails from './RedlineDetails.jsx'
 import BulwarkDetails from './BulwarkDetails.jsx'
 import TickrateDetails from './TickrateDetails.jsx'
+import StrataDetails from './StrataDetails.jsx'
 import { Clip } from './Media.jsx'
 import Background from './Background.jsx'
 import CommandPalette from './CommandPalette.jsx'
@@ -38,6 +39,22 @@ const jobs = [
 ]
 
 const projects = [
+  {
+    url: 'strata-web-one.vercel.app', name: 'Strata', featured: true, Details: StrataDetails,
+    text: 'An original RAG engine with an evaluation harness built directly into it — the two things RAGFlow and Ragas each do separately, combined, and every piece (hybrid BM25 + vector retrieval fused by RRF, citation-checked generation, and all four Ragas-style metrics) implemented from scratch after studying how both actually work. A real run scored hybrid retrieval at 100% faithfulness and 91.7% context precision against a naive baseline’s 77.8% and 63.9% — real numbers from an actual model, not assumed. Live demo above; 126 tests.',
+    tags: ['TypeScript', 'Node.js', 'Gemini', 'Ollama', 'Vite'],
+    media: {
+      poster: '/media/strata-answer.png', alt: 'Strata: a cited, grounded answer to a real question with the retrieved chunk shown alongside its fused, vector, and BM25 scores',
+      shots: [
+        { src: '/media/strata-answer.png', alt: 'Strata: a cited, grounded answer to a real question with the retrieved chunk shown alongside its fused, vector, and BM25 scores' },
+        { src: '/media/strata-mobile.png', alt: 'Strata’s responsive layout stacked on a phone-width screen, showing a document successfully added' },
+      ],
+    },
+    links: [
+      { label: 'Live demo', href: 'https://strata-web-one.vercel.app' },
+      { label: 'Source', href: 'https://github.com/Ayush-G09/strata' },
+    ],
+  },
   {
     url: 'github.com/Ayush-G09/tickrate', name: 'Tickrate', featured: true, Details: TickrateDetails,
     text: 'A multiplayer arena shooter built to prove out real authoritative-server netcode: client-side prediction, server reconciliation, snapshot interpolation, and lag-compensated hit detection — each phase proven by a decisive test, including a real forked server process replaying its own recorded input history bit-identically, and the same shot missing without lag compensation and hitting with it at the exact same simulated latency. A live debug panel lets you drag latency and packet-loss sliders into your own connection mid-game. Not deployed publicly; clone it and run it in about two minutes. 84 tests.',
