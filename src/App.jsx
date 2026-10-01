@@ -6,6 +6,7 @@ import RedlineDetails from './RedlineDetails.jsx'
 import BulwarkDetails from './BulwarkDetails.jsx'
 import TickrateDetails from './TickrateDetails.jsx'
 import StrataDetails from './StrataDetails.jsx'
+import CortexDetails from './CortexDetails.jsx'
 import { Clip } from './Media.jsx'
 import Background from './Background.jsx'
 import CommandPalette from './CommandPalette.jsx'
@@ -39,6 +40,22 @@ const jobs = [
 ]
 
 const projects = [
+  {
+    url: 'cortex-web-black.vercel.app', name: 'Cortex', featured: true, Details: CortexDetails,
+    text: 'A neural network built entirely from scratch — matrix math, backpropagation, gradient descent, no PyTorch, no TensorFlow. Its own autodiff engine is checked against independently-computed finite differences to 4 decimal places, then used to train a real classifier on real MNIST digits: 94.3% test accuracy, against a 10.0% majority-class baseline and 7.8% for the identical untrained network. Draw a digit above and watch it classify live, entirely in your browser. 24 tests.',
+    tags: ['TypeScript', 'Autodiff', 'MNIST', 'Vite'],
+    media: {
+      poster: '/media/cortex-draw.jpg', alt: 'Cortex: a hand-drawn "3" classified live at 99.9% confidence by the from-scratch network',
+      shots: [
+        { src: '/media/cortex-draw.jpg', alt: 'Cortex: a hand-drawn "3" classified live at 99.9% confidence by the from-scratch network' },
+        { src: '/media/cortex-proof.jpg', alt: 'Cortex: the full confidence distribution over all 10 digits, plus the training-proof chart showing test accuracy climbing to 94.3% against a 10.0% majority baseline and 7.8% untrained network' },
+      ],
+    },
+    links: [
+      { label: 'Live demo', href: 'https://cortex-web-black.vercel.app' },
+      { label: 'Source', href: 'https://github.com/Ayush-G09/cortex' },
+    ],
+  },
   {
     url: 'strata-web-one.vercel.app', name: 'Strata', featured: true, Details: StrataDetails,
     text: 'A RAG (retrieval-augmented generation) engine with an evaluation harness built directly into it: hybrid BM25 + vector retrieval fused by Reciprocal Rank Fusion, citation-checked generation, and four LLM-judged quality metrics (faithfulness, answer relevancy, context precision, context recall), all implemented from scratch. A real run scored hybrid retrieval at 100% faithfulness and 91.7% context precision against a naive baseline’s 77.8% and 63.9% — real numbers from an actual model, not assumed. Live demo above; 126 tests.',
