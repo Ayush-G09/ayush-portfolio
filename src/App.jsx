@@ -45,9 +45,9 @@ const projects = [
     text: 'A neural network built entirely from scratch — matrix math, backpropagation, gradient descent, no PyTorch, no TensorFlow. Its own autodiff engine is checked against independently-computed finite differences to 4 decimal places, then used to train a real classifier on real MNIST digits: 94.3% test accuracy, against a 10.0% majority-class baseline and 7.8% for the identical untrained network. Draw a digit above and watch it classify live, entirely in your browser. 24 tests.',
     tags: ['TypeScript', 'Autodiff', 'MNIST', 'Vite'],
     media: {
-      poster: '/media/cortex-draw.jpg', alt: 'Cortex: a hand-drawn "3" classified live at 99.9% confidence by the from-scratch network',
+      poster: '/media/cortex-demo.jpg', alt: 'Cortex: a hand-drawn "3" classified live at 100% confidence, with the full probability breakdown by the from-scratch network',
       shots: [
-        { src: '/media/cortex-draw.jpg', alt: 'Cortex: a hand-drawn "3" classified live at 99.9% confidence by the from-scratch network' },
+        { src: '/media/cortex-demo.jpg', alt: 'Cortex: a hand-drawn "3" classified live at 100% confidence, with the full probability breakdown by the from-scratch network' },
         { src: '/media/cortex-proof.jpg', alt: 'Cortex: the full confidence distribution over all 10 digits, plus the training-proof chart showing test accuracy climbing to 94.3% against a 10.0% majority baseline and 7.8% untrained network' },
       ],
     },
@@ -290,7 +290,7 @@ export default function App() {
             {projects.map((p) => (
               <Tilt
                 key={p.name}
-                className={`card ${p.featured ? 'wide' : ''} ${p.Details ? 'clickable' : ''}`}
+                className={`card ${p.Details ? 'clickable' : ''}`}
                 onClick={p.Details ? (e) => { if (!e.target.closest('a, button')) setOpenProject(p) } : undefined}
               >
                 <div className="dots"><i className="r" /><i className="y" /><i className="g" /><span className="mono">{p.url}</span></div>
