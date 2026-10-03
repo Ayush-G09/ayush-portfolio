@@ -42,7 +42,7 @@ const jobs = [
 const projects = [
   {
     url: 'cortex-web-black.vercel.app', name: 'Cortex', featured: true, Details: CortexDetails,
-    text: 'A neural network built entirely from scratch — matrix math, backpropagation, gradient descent, no PyTorch, no TensorFlow. Its own autodiff engine is checked against independently-computed finite differences to 4 decimal places, then used to train a real classifier on real MNIST digits: 94.3% test accuracy, against a 10.0% majority-class baseline and 7.8% for the identical untrained network. Draw a digit above and watch it classify live, entirely in your browser. 24 tests.',
+    text: 'A neural network built entirely from scratch — matrix math, backpropagation, gradient descent, no PyTorch, no TensorFlow. Its own autodiff engine is checked against independently-computed finite differences to 4 decimal places, then used to train a real classifier on real MNIST digits: 94.3% test accuracy, against a 10.0% majority-class baseline and 7.8% for the identical untrained network. Draw a digit above and watch it classify live, entirely in your browser. 15 tests.',
     tags: ['TypeScript', 'Autodiff', 'MNIST', 'Vite'],
     media: {
       poster: '/media/cortex-demo.jpg', alt: 'Cortex: a hand-drawn "3" classified live at 100% confidence, with the full probability breakdown by the from-scratch network',

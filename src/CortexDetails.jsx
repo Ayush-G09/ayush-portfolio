@@ -90,7 +90,7 @@ export default function CortexDetails() {
         <pre className="code-block"><code>{`git clone https://github.com/Ayush-G09/cortex.git
 cd cortex && npm install
 
-npm test                           # 24 tests: autodiff gradient checks, training loop proofs
+npm test                           # 15 tests: autodiff gradient checks, training loop proofs
 
 npm run prepare-data -w apps/train # draws a real, balanced MNIST subset
 npm run train -w apps/train        # real backprop training — ~94% test accuracy in ~15s
@@ -134,7 +134,7 @@ npm run dev -w apps/web            # the live draw-and-classify demo, :5176`}</c
       <section>
         <h3>Proof it works</h3>
         <div className="stat-row">
-          <div><span className="big">24</span><span className="mono">automated tests, 2 packages</span></div>
+          <div><span className="big">15</span><span className="mono">automated tests, 2 packages</span></div>
           <div><span className="big">4 d.p.</span><span className="mono">analytic vs. finite-difference gradient match</span></div>
           <div><span className="big">94.3%</span><span className="mono">real MNIST test accuracy</span></div>
           <div><span className="big">10.0% / 7.8%</span><span className="mono">majority-baseline / untrained-net accuracy</span></div>
@@ -153,7 +153,7 @@ npm run dev -w apps/web            # the live draw-and-classify demo, :5176`}</c
           <div><dt className="mono">Network / training</dt><dd>`Linear` + `MLP` + plain mini-batch `SGD`, He-initialized weights, seeded RNG for reproducible runs</dd></div>
           <div><dt className="mono">Data</dt><dd>Real MNIST via the `mnist` npm package, quantized and base64-encoded into a saved, reproducible dataset file</dd></div>
           <div><dt className="mono">Demo</dt><dd>Vite + vanilla TypeScript, canvas drawing with MNIST-style bounding-box centering, inference entirely client-side</dd></div>
-          <div><dt className="mono">Quality</dt><dd>Vitest (24 tests): op correctness, hand-derived gradient checks, a full finite-difference gradient check, and decisive train-vs-baseline proofs</dd></div>
+          <div><dt className="mono">Quality</dt><dd>Vitest (15 tests): op correctness, hand-derived gradient checks, a full finite-difference gradient check, and decisive train-vs-baseline proofs</dd></div>
           <div><dt className="mono">Hosting</dt><dd>Vercel — static build, pre-trained weights shipped as a JSON asset, no backend at all</dd></div>
         </dl>
       </section>
